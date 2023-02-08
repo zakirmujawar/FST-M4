@@ -1,0 +1,22 @@
+# Change root directory
+cd root
+# Now you are in root floder ~#
+# Create a text file named txtFile.txt 
+$ vim txtFile.txt
+
+# Create a text file named csvFile.csv 
+$ vim csvFile.csv 
+
+# Make a textData folder on the HDFS
+$ hdfs dfs -mkdir /user/zakir/textData
+
+# Copy the CSV file, csvFile.csv, into the textData folder in the HDFS (~# in root directoty)
+
+$ hdfs dfs -put csvFile.csv /user/zakir/textData
+
+# Copy the TXT file, txtFile.txt, into the textData folder in the HDFS
+$ hdfs dfs -put txtFile.txt /user/zakir/textData
+
+# Use the stat command to get the file statistics
+$ hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/zakir/textData/csvFile.csv
+$ hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/zakir/textData/txtFile.txt
