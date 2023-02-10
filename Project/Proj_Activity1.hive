@@ -1,0 +1,22 @@
+-- Drop Tables
+
+DROP TABLE episodeIV;
+DROP TABLE episodeV;
+DROP TABLE episodeVI;
+
+-- For Eisode IV
+
+CREATE TABLE episodeIV (name STRING, line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2"); 
+LOAD DATA LOCAL INPATH '/root/input/episodeIV_dialouges.txt' INTO TABLE episodeIV; 
+SELECT name, COUNT(name) AS no_of_lines from episodeIV GROUP BY name ORDER BY no_of_lines DESC;
+
+-- For Episdoe V
+CREATE TABLE episodeV (name STRING, line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2"); 
+LOAD DATA LOCAL INPATH '/root/input/episodeV_dialouges.txt' INTO TABLE episodeV; 
+SELECT name, COUNT(name) AS no_of_lines from episodeV GROUP BY name ORDER BY no_of_lines DESC;
+
+
+-- For Episdoe VI
+CREATE TABLE episodeVI (name STRING, line STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' TBLPROPERTIES ("skip.header.line.count"="2"); 
+LOAD DATA LOCAL INPATH '/root/input/episodeVI_dialouges.txt' INTO TABLE episodeVI; 
+SELECT name, COUNT(name) AS no_of_lines from episodeVI GROUP BY name ORDER BY no_of_lines DESC;
